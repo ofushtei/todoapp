@@ -1,0 +1,45 @@
+<div class="taskList">
+
+  <div class="list"
+    [cdkDropListData]="tasksN"
+    cdkDropList
+    (cdkDropListDropped)="drop($event, 'N')"
+    [cdkDropListConnectedTo]="[inProgressTasksList, doneTasksList]"
+    #newTasksList="cdkDropList">
+    <div class="mat-title">
+      New
+    </div>
+    <div cdkDrag *ngFor="let task of tasksN" class="item">
+      <button mat-stroked-button routerLink="{{ task.id }}">{{task.title}}</button>
+    </div>
+  </div>
+ 
+  <div class="list"
+    [cdkDropListData]="tasksP"
+    cdkDropList
+    (cdkDropListDropped)="drop($event, 'P')"
+    [cdkDropListConnectedTo]="[newTasksList, doneTasksList]"
+    #inProgressTasksList="cdkDropList">
+    <div class="mat-title">
+      In progress
+    </div>
+    <div cdkDrag *ngFor="let task of tasksP" class="item">
+      <button mat-stroked-button routerLink="{{ task.id }}">{{task.title}}</button>
+    </div>
+  </div>
+  
+  <div class="list"
+    [cdkDropListData]="tasksD"
+    cdkDropList
+    (cdkDropListDropped)="drop($event, 'D')"
+    [cdkDropListConnectedTo]="[newTasksList, inProgressTasksList]"
+    #doneTasksList="cdkDropList">
+    <div class="mat-title">
+      Done
+    </div>
+    <div cdkDrag *ngFor="let task of tasksD" class="item">
+      <button mat-stroked-button routerLink="{{ task.id }}">{{task.title}}</button>
+    </div>
+  </div>
+
+</div>

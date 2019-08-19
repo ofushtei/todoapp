@@ -1,0 +1,28 @@
+<div class="form-container" *ngIf="task">
+
+  <div class="mat-h1">Details of "{{ task.title }}"</div>
+  
+  <mat-form-field floatLabel="always" appearance="outline" color="warn">
+    <mat-label>Title: </mat-label>
+    <input matInput required [(ngModel)]="task.title">
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline" color="primary">
+    <mat-label>Description: </mat-label>
+    <textarea matInput [(ngModel)]="task.description"></textarea>
+  </mat-form-field>
+  
+  <mat-form-field floatLabel="always" color="primary">
+    <mat-label>Deadline: </mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Set date" [(ngModel)]="task.deadline">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div id="button-row">
+    <button mat-stroked-button (click)="goBack()">Back</button>
+    <button mat-raised-button color="warn" (click)="delete(task)">Delete</button>
+    <button mat-raised-button color="primary" (click)="save(task)">Save</button>
+  </div>
+  
+</div>

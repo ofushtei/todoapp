@@ -1,0 +1,28 @@
+<div class="form-container">
+
+  <div class="mat-h1">Create new task</div>
+    
+  <mat-form-field floatLabel="always" appearance="outline" color="warn">
+    <mat-label>Title: </mat-label>
+    <input matInput required #taskTitle>
+  </mat-form-field>
+  
+  <mat-form-field floatLabel="always" appearance="outline" color="primary">
+    <mat-label>Description: </mat-label>
+    <textarea matInput #taskDescription></textarea>
+  </mat-form-field>
+    
+  <mat-form-field floatLabel="always" color="primary">
+    <mat-label>Deadline: </mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Set date" #taskDeadline>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+  <div id="button-row">
+    <button mat-stroked-button (click)="goBack()">Back</button>
+    <button mat-raised-button color="primary" (click)="add(taskTitle.value, taskDescription.value, taskDeadline.value)">Save</button>
+  </div>
+    
+</div>
+  

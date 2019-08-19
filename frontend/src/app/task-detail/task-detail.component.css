@@ -1,0 +1,16 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+  
+button {
+  margin: 5px;
+}
+
+#button-row {
+  align-self: flex-end;
+}
